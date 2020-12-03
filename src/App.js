@@ -4,7 +4,9 @@ import "./App.css";
 import Message from "./Message";
 function App() {
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { input: "hi ", username: "gedewon" },
+  ]);
   const [username, setUsername] = useState("");
 
   useEffect(() => {
@@ -39,11 +41,7 @@ function App() {
       </form>
 
       {messages.map((message, index) => (
-        <Message
-          key={index}
-          message={message.input}
-          username={message.username}
-        />
+        <Message key={index} message={message} username={username} />
       ))}
     </div>
   );
